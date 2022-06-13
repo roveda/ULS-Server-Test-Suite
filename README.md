@@ -6,5 +6,5 @@ This document describes the test procedures and results necessary to assure the 
 
 This documentation refers to version 1.9.6 of the ULS Server.
 
-For more information see [Universal Logging System](https:www.universal-logging-system.org)
+For more information see [Universal Logging System](https://www.universal-logging-system.org)
 
