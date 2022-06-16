@@ -7,7 +7,7 @@ which are referenced in this document are kept as separate documents.
 
 This documentation refers to the [ULS-server version](index.md#uls-server-version), more information about updates can be found [here](https://www.universal-logging-system.org/dokuwiki/doku.php?id=uls:install#update).
 
-\[[Next](changelog.md)\] \[[Up](index.md)\] \[[Home](index.md)\]
+\[[Next](changelog.md)\] \[[Prev](test_scenario.md)\]  \[[Up](index.md)\] \[[Home](index.md)\]
 
 ## Conventions
 Terminal in- and output is marked by `mono spaced font`.
@@ -145,4 +145,4 @@ This guide is not an ULS documentation, that explains how ULS works. Although, i
 - [Retention](test_procedure_description/retention.md)
 - [More Security Features](test_procedure_description/more_security_features.md)
 
-\[[Next](changelog.md)\] \[[Up](index.md)\] \[[Home](index.md)\]
+\[[Next](changelog.md)\] \[[Prev](test_scenario.md)\]  \[[Up](index.md)\] \[[Home](index.md)\]
