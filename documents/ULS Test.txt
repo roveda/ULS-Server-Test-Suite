@@ -1,0 +1,1102 @@
+ULS Test
+
+
+
+https://10.1.81.53
+
+
+putty:
+lulsqd003
+10.1.81.53
+
+root -v "ULS Test"
+
+zypper in python-requests
+
+
+maehlru:
+cd ~/sandbox/website
+
+python get_website.py
+
+
+
+https://blog.testproject.io/2019/07/16/web-ui-testing-python-pytest-selenium-webdriver/
+
+
+Selenium kann ur Text
+
+Grafiken herunterladen?
+Screenshots numeriert abspeichern?
+
+
+------------------------------------------------------------------
+Vorbereitende Installation
+
+
+
+zypper se firefox
+
+S | Name                        | Summary                         | Type
+--+-----------------------------+---------------------------------+-----------
+  | MozillaFirefox              | Mozilla Firefox Web Browser     | package
+
+
+
+
+https://sites.google.com/a/chromium.org/chromedriver/
+
+
+.105
+ldeb10a
+10.1.81.105, Kennwort: Schneesturm
+
+https://medium.com/@mashood.snhu/automated-unit-testing-of-a-web-application-in-python-de426afda5a3
+
+
+      Install Pip for Python 3 on Debian 10
+
+      sudo apt update
+      sudo apt install python3-venv python3-pip
+
+      $ pip3 --version
+      pip 18.1 from /usr/lib/python3/dist-packages/pip (python 3.7)
+
+
+      eventuell noch
+      https://tecadmin.net/setup-selenium-with-chromedriver-on-debian/
+      prüfen, Installation von Xvfb (X virtual framebuffer)
+
+su -
+sd.linstall08
+
+apt-cache search chromium
+
+# apt-get install chromium  chromium-driver
+...
+chromium ist schon die neueste Version (87.0.4280.141-0.1~deb10u1).
+chromium-driver ist schon die neueste Version (87.0.4280.141-0.1~deb10u1).
+
+(sind schon installiert)
+
+
+# apt-cache search selenium
+
+# apt-get install python3-selenium
+
+    # apt-get install python3-pyvirtualdisplay
+
+    (Lädt noch weitere Pakete dazu)
+
+    Klappt aber auch schon mit dem ersten Beispiel, das Paket ist also eventuell(!) nicht wirklich notwendig.
+
+# apt-get install python3-yaml
+
+--------------------------------------------------------------------------
+ldeb10a
+10.1.81.105, Kennwort: Schneesturm
+
+cd /homes/maehlru/sandbox/website
+
+vi ut0010_1stconnect.py
+
+$ python3 ut0010_1stconnect.py
+
+
+Idee:
+
+Aufteilung in Skripte
+  zum Anlegen der Benutzer, Verfahren, Testsysteme, jeweils mit finalem Screenshot.
+
+  Definition der Überwachungen, jeweils aufgeteilt wie im Dokument, unabhängig ausführbar.
+
+  Auswertung der ausgelösten Benachrichtigungen (/tmp ist NICHT erreichbar von der debian Maschine aus).
+  Auswerten der tabellarischen Ausgabe, Abspeichern von Screenshots bei Grafiken.
+
+
+$ python3 0010_initial_settings_and_assets.py
+
+
+Standardgröße für Grafiken auf 1024x768 setzen
+zeige Online-Hilfstexte deaktivieren
+Username anzeigen aktivieren
+
+
+TheSpyder
+Abcd1234;:
+
+Abcd_1234
+
+//form/table[1]/tbody/tr[6]/td[2]/table/tbody/tr[1]/td[4]/input
+
+
+//form/table[1]/tbody/tr[6]/td[2]/table/tbody/tr[1]
+
+
+driver.find_element(By.XPATH, "//*[@id='reportList']/tbody//td[contains(text(), 'example text')]")
+
+
+option
+
+drop-down Liste
+
+Problem: Einige Buttons haben den gleichen "name":
+
+<input type="submit" class="button" name="u645342ok" value="OK">&nbsp;
+<input type="button" class="button" value="Zurück" onClick="history.go(-1)">&nbsp;
+<input type="submit" class="button" name="u645342ok" value="löschen">&nbsp;
+<input type="submit" class="button" name="u645342ok" value="Kennwort ändern">&nbsp;
+<input name="uid" type="hidden" value="1155">
+<input type="submit" class="button" name="u645342ok" value="alle Verfahren">&nbsp;
+<input name="u645342fm" type="hidden" value="1">
+
+<input type="submit" class="button" name="u645342ok" value="login">
+
+
+selenium.common.exceptions.NoSuchElementException
+
+
+AmieAction
+HeyJoe
+SystematicGuy
+
+
+TheSpyder: Verfahren zuweisen
+
+SecurityAdmin
+
+
+<div id=title"  text </div>
+
+spyder =  { 'username': 'the_spyder', 'pwd': 'Abcd:,1234' ,'name': 'Spyder' ,'vorname': 'Rafael' ,'email': stdemail }
+amie = {'username': 'AmieAction',  'pwd': 'AmieAction' ,'name': 'Action' ,'vorname': 'Amie' ,'email': stdemail }
+joe = {'username': 'HEYJOE',  'pwd': 'HEYJOE' ,'name': 'Carpenter' ,'vorname': 'Joe' ,'email': stdemail }
+guy = {'username': 'SystematicGuy',  'pwd': 'SystematicGuy' ,'nachname': 'Guy' ,'vorname': 'Systyr' ,'email': stdemail }
+sec = {'username': 'SecurityAdmin',  'pwd': 'Sec_Adm_9-5' ,'nachname': 'Secu' ,'vorname': 'Rity' ,'email': stdemail }
+
+
+
+
+users['spyder']['username']
+
+  # Prozess ID vom Webdriver:
+  # c = webdriver.Chrome()
+  # c.service.process # is a Popen instance for the chromedriver process
+  # import psutil
+  # p = psutil.Process(c.service.process.pid)
+  # print p.get_children(recursive=True)
+  # Muss uU beim exit extra gekillt werden, oder im Nachgang
+  # => in ...pid Datei, wenn die nach Beendigung des Skripts noch
+  # vorhanden ist (also nicht ordentlich abgeraeumt wurde), muss gekillt werden.
+
+
+python3 0110_thespyder.py
+
+
+ps -ef|grep chrom | grep -v grep 
+
+p=$(ps -ef|grep chrom | grep -v grep | awk '{print $2}') ; kill -9 $p
+
+
+Doch auf dynamische User umbauen?
+Dann müssen aber alle Konfigurationsangaben in die cfg aufgenommen werden.
+
+spyder =  { 'username': 'the_spyder', 'pwd': 'Abcd:,1234' ,'name': 'Spyder' ,'vorname': 'Rafael' ,'email': stdemail }
+
+><div id="title">main menu</div>
+
+
+
+users = {
+   'spyder': { 'username': 'the_spyder', 'pwd': 'Abcd:,1234' ,'name': 'Spyder' ,'vorname': 'Rafael' ,'email': stdemail
+             , 'admin': True, 'operator': False, 'service': False
+             , 'pwdneverexpires': False, 'accountislocked': False, 'usercantchangepwd': False
+             }
+ , 'amie': {'username': 'AmieAction',  'pwd': 'AmieAction' ,'name': 'Action' ,'vorname': 'Amie' ,'email': stdemail
+              , 'admin': False, 'operator': False, 'service': False
+              , 'pwdneverexpires': False, 'accountislocked': False, 'usercantchangepwd': False
+           }
+ , 'joe': {'username': 'HEYJOE',  'pwd': 'HEYJOE' ,'name': 'Carpenter' ,'vorname': 'Joe' ,'email': stdemail
+              , 'admin': False, 'operator': False, 'service': False
+              , 'pwdneverexpires': False, 'accountislocked': False, 'usercantchangepwd': False
+          }
+ , 'guy': {'username': 'SystematicGuy',  'pwd': 'N0thing2l0se' ,'nachname': 'Guy' ,'vorname': 'Systyr' ,'email': stdemail
+              , 'admin': False, 'operator': False, 'service': False
+              , 'pwdneverexpires': False, 'accountislocked': False, 'usercantchangepwd': False
+          }
+ , 'sec': {'username': 'SecurityAdmin',  'pwd': 'Sec_Adm_9-5' ,'nachname': 'Secu' ,'vorname': 'Rity' ,'email': stdemail
+              , 'admin': False, 'operator': False, 'service': False
+              , 'pwdneverexpires': True, 'accountislocked': False, 'usercantchangepwd': False
+          }
+
+}
+
+'admin': True, 'operator': False, 'service': False, 
+'pwdneverexpires': False, 'accountislocked': False, 'usercantchangepwd': False
+
+
+users = {
+   'spyder': { 'username': 'the_spyder', 'pwd': 'Abcd:,1234' ,'name': 'Spyder' ,'vorname': 'Rafael' ,'email': stdemail
+             , 'admin': True, 'operator': False, 'service': False
+             , 'pwdneverexpires': False, 'accountislocked': False, 'usercantchangepwd': False
+             }
+
+
+
+Second Planet of Claysons Star
+
+users['spyder']['username']
+
+
+
+ps -ef|grep chrom | grep -v grep 
+
+p=$(ps -ef|grep chrom | grep -v grep | awk '{print $2}') ; [[ -n "$p" ]] && kill -9 $p
+
+
+  xpath = "//*/td[contains(text(), '" + text + "')]/preceding-sibling::td[1]/input"
+
+<tr>
+  <td><input name="n0" type="text" size=25 maxlength=64999></td>
+  <td><input name="din0" type="text" size=7 maxlength=64999></td>
+  <td><textarea name="b0" wrap="soft" rows=2 cols=30></textarea></td>
+  <td class="u2wtacenter;"><textarea name="i0" wrap="soft" rows=2 cols=15></textarea></td>
+  <td></td>
+  <td></td>
+</tr>
+
+    # <tr>
+    #   <td><a href="set_server.u2w?id=42456">ulstest1</a></td>
+    #   <td>testsrv11</td>
+    #   <td>Knowhere</td>
+    #   <td>active</td>
+    #   <td></td>
+    #   <td>10.1.81.53</td>
+    #   <td>2019-08-27</td>
+    #   <td>2021-02-15</td>
+    # </tr>
+
+
+
+sources = {
+   'ulstest1': { 'name': 'testsrv11', 'domain': 'knowhere', 'class': 'prod', 'ip': '10.1.81.53' }
+ , 'ulstest2': { 'name': 'testsrv12', 'domain': 'knowhere', 'class': 'stage', 'secondary-ip': '10.1.81.53' }
+ , 'ulstest3': { 'name': 'testsrv21', 'domain': 'woodlark', 'class': 'prod', 'accept-ips': '10.1.81.53' }
+ , 'ulstest4': { 'name': 'testsrv22', 'domain': 'woodlark', 'class': 'test', 'accept-ips': '10.1.81.53/32' }
+}
+
+domains = {
+   'woodlark': {'name': 'Woodlark', 'description': 'Second Planet of Claysons Star'}
+ , 'knowhere': {'name': 'Knowhere', 'description': 'Severed head of a Celestial floating along The Rip'}
+}
+
+
+
+b.find_element_by_xpath("//select[@name='element_name']/option[text()='option_text']").click()
+
+
+
+  # <select name="state" size=1>
+  #   <option  value="active">active</option>
+  #   <option  value="noalarms">no alarms</option>
+  #   <option  value="inactive">inactive</option>
+  # </select>
+
+
+from selenium.webdriver.support.ui import Select
+driver = webdriver.Ie(".\\IEDriverServer.exe")
+driver.get("https://test.com")
+select = Select(driver.find_element_by_xpath("""//input[@name='n_name']"""))
+select.select_by_index(2)
+select.select_by_visible_text('Visible Text')
+select.select_by_value('value')
+
+
+
+
+print("Element " + elem + " has no 'value' attribut")
+
+print(subname() + ": Cannot find element for xpath=" + xpath)
+
+
+python3-pil
+
+    from PIL import Image
+    from PIL import ImageFont
+    from PIL import ImageDraw
+    import sys
+     
+    in_file, out_file, text = sys.argv[1:]
+     
+    img = Image.open(in_file)
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.truetype('Pillow/Tests/fonts/FreeMono.ttf', 20)
+    draw.text((0, 0), text, (255, 255, 255), font=font)
+    img.save(out_file)
+
+
+/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
+
+    from PIL import Image, ImageDraw, ImageFont
+     
+    img = Image.new('RGB', (100, 30), color = (73, 109, 137))
+     
+    fnt = ImageFont.truetype('/Library/Fonts/Arial.ttf', 15)
+    d = ImageDraw.Draw(img)
+    d.text((10,10), "Hello world", font=fnt, fill=(255, 255, 0))
+     
+    img.save('pil_text_font.png')
+
+
+p=$(ps -ef|grep chrom | grep -v grep | awk '{print $2}') ; [[ -n "$p" ]] && kill -9 $p
+
+
+    'all': {'retention': '14', 'description': 'domain'}
+  , 'adm': {'retention': '91', 'description': 'admin'}
+  , 'sec': {'retention': '367', 'description': 'security'}
+  , 'ulsadmlog': {'retention': '90', 'description': 'uls admin events'}
+}
+
+
+
+groups = {
+    'AllRounder': {'longname': 'All Rounder', 'email': stdemail, 'ismaster': False, 'description': ''}
+ ,  'Databasics': {'longname': 'Database Hunters', 'email': '', 'ismaster': False, 'description': 'All Database Freaks'}
+ ,  'Hotliners': {'longname': 'Hot Liners', 'email': '', 'ismaster': False, 'description': ''}
+ ,  'Systemaniacs': {'longname': 'System Maniacs', 'email': '', 'ismaster': True, 'description': ''}
+
+}
+
+
+groups2domainprivs = {
+   'AllRounder': {
+        'knowhere': ['domain', 'admin']
+      , 'woodlark': ['domain']
+   }
+ , 'Databasics': {
+        'knowhere': ['domain']
+      , 'woodlark': ['domain read-only']
+   }
+ , 'Hotliners':  {
+        'woodlark': ['domain read-only']
+   }
+ , 'Systemaniacs': {
+        'knowhere': ['domain read-only']
+      , 'woodlark': ['domain']
+   }
+}
+
+
+
+
+
+p=$(ps -ef|grep chrom | grep -v grep | awk '{print $2}') ; [[ -n "$p" ]] && kill -9 $p
+
+
+  xpath = "//*[text() = '" + domainname + "']/following-sibling::td[" + str(sib) + "]//*/input"
+  xpath = "//*/td[text() = '" + domainname + "']/following-sibling::td[" + str(sib) + "]//*/input"
+
+
+
+users = {
+   'spyder': {  'username': 'the_spyder', 'pwd': 'Abcd:,1234' ,'name': 'Spyder' ,'vorname': 'Rafael' ,'email': stdemail
+              , 'admin': True, 'operator': False, 'service': False
+              , 'pwdneverexpires': False, 'accountislocked': False, 'usercantchangepwd': False
+              , 'groups': ['AllRounder', 'Databasics', 'Hotliners', 'Systemaniacs']
+             }
+ , 'amie': {    'username': 'AmieAction',  'pwd': 'Amie_Action5' ,'name': 'Action' ,'vorname': 'Amie' ,'email': stdemail
+              , 'admin': False, 'operator': False, 'service': False
+              , 'pwdneverexpires': False, 'accountislocked': False, 'usercantchangepwd': False
+              , 'groups': ['Databasics']
+           }
+ , 'joe': {     'username': 'HEYJOE',  'pwd': "Joe's-Hello" ,'name': 'Carpenter' ,'vorname': 'Joe' ,'email': stdemail
+              , 'admin': False, 'operator': False, 'service': False
+              , 'pwdneverexpires': False, 'accountislocked': False, 'usercantchangepwd': False
+              , 'groups': ['Hotliners']
+          }
+ , 'guy': {     'username': 'SystematicGuy',  'pwd': 'N0thing2l0se' ,'name': 'Guy' ,'vorname': 'Systyr' ,'email': stdemail
+              , 'admin': False, 'operator': False, 'service': False
+              , 'pwdneverexpires': False, 'accountislocked': False, 'usercantchangepwd': False
+              , 'groups': ['Systemaniacs']
+          }
+ , 'sec': {     'username': 'SecurityAdmin',  'pwd': 'Sec_Adm_9-5' ,'name': 'Secu' ,'vorname': 'Rity' ,'email': stdemail
+              , 'admin': False, 'operator': False, 'service': False
+              , 'pwdneverexpires': True, 'accountislocked': False, 'usercantchangepwd': False
+              , 'groups': ['Databasics']
+          }
+
+}
+Wl+3gJhNB71-§V%K
+
+the_spyder
+Abcd:,1234
+
+
+p=$(ps -ef|grep chrom | grep -v grep | awk '{print $2}') ; [[ -n "$p" ]] && kill -9 $p
+
+
+
+test module
+Main subject of tests (mostly in one top level chapter), it defines the test module abbreviation for the numbering of test cases, e.g. NTFY for notifications.
+
+test case
+A test scenario for a related set of tests with limited or enclosed scope, including its full description.
+
+test case abstract
+Short list of keywords that describe the test case (optional).
+
+test id
+One specific test within a test case. It is identified by an abbreviation of the test module and a unique number.
+
+test result
+The result of a test, the format is:
+TEST: <module abbreviation> <id>: <test case abstract>: { UNTESTED | TODO | PASSED | FAILED }
+
+
+
+
+# grep for testid to find all used test ids:
+#
+# $ grep "testid =" *.py
+#
+# (used for further increments of test ids)
+
+
+
+<form class="loginform"  name="Eingaben" method=post action="/index.u2w">
+
+driver.find_elements_by_class_name("loginform")
+
+<a href="index.u2w">main menu</a>
+
+driver.find_elements_by_xpath("//*[contains(text(), '')]")
+
+
+testid numerisch, bei jeder Benutzung ums 1 hochzählen, 
+Initialwert wird am Skriptbeginn gesetzt, 
+für jedes Skript um 100 höher? => Dann passt das aber nicht zur Kapitelnummerierung in der Doku
+
+00 - 99 Kapitel in zugehöriger Doku?
+Es gibt aber nur wenige Kapitel, die restlichen Zahlen könnten nicht verwendet werden.
+
+max 99 Tests pro Kapitel, ist das ausreichend?
+
+'secu'..'ntfy' als Vorspann vor den Skriptnamen
+01..99 pro Set-/Testskript
+01..99 Tests pro Skript
+Die Doku referenziert die Skripte, 
+die Nummerierung der Skripte ist 
+
+secu06_auditing_of_failed_logins.py
+
+Damit hat man 99 Testskripte pro Testmodul (test module)
+Der Startwert der testid's kann aus dem Skriptnamen abgeleitet werden.
+
+Somit können gleiche Vorgänge (zB Login von the_spyder) unter 
+unterschiedlichen testid's auftreten.
+Ist das ok?
+
+Alles andere würde eine zentrale Verwaltung von testid's notwendig machen.
+(und den Zugriff aus den Skripten mit einer Referenz)
+
+Und deswegen ist das ok!
+
+
+
+  setPasswordBox(driver, 'admin', users['spyder']['pwd'])
+
+  setCheckbox(driver, False, "genpwd")
+
+  setPasswordBox(driver, 'neupwd', users['spyder']['pwd'])
+  setPasswordBox(driver, 'neupwd2', users['spyder']['pwd'])
+
+
+
+click_uls_path
+
+  switchToRightFrame(d)
+
+  switchToDefault(d)
+
+//*[contains(text(), 'hello') or contains(text(), 'world')]
+
+
+keywords = ['action', 'change', 'password' ]
+conditions = " and ".join(["contains(text(), '%s')" % keyword for keyword in keywords])
+xpath = "//*[%s]" % conditions
+
+text()[contains(lower-case(.),'test')]
+
+/html/body//text()[matches(.,'test', 'i')]
+
+
+
+p=$(ps -ef|grep chrom | grep -v grep | awk '{print $2}') ; [[ -n "$p" ]] && kill -9 $p
+
+
+
+from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+# set the scrolling behavior to down
+DesiredCapabilities.FIREFOX["elementScrollBehavior"] = 1
+
+driver = webdriver.Firefox()
+wait = WebDriverWait(driver, 10)
+
+# load the page
+driver.get("http://hacknyu.org/signup")
+
+# get the form element
+form = driver.find_element_by_css_selector("form[name='signupForm']")
+
+# fill the fields
+form.find_element_by_css_selector("input[name='firstName']").send_keys("myfirstname")
+form.find_element_by_css_selector("input[name='lastName']").send_keys("mylastname")
+form.find_element_by_css_selector("input[name='email']").send_keys("na@na.na")
+form.find_element_by_css_selector("input[name='password']").send_keys("mypassword")
+
+# click and accept terms
+form.find_element_by_xpath("//input[@name='terms']/..").click()
+wait.until(EC.presence_of_element_located((By.XPATH, "//button[.='Accept']"))).click()
+wait.until_not(EC.presence_of_element_located((By.CSS_SELECTOR, ".modal")))
+
+# click on submit
+form.find_element_by_css_selector("button[type='submit']").click()
+
+=========================
+wait = WebDriverWait(driver, 10)
+wait.until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, HackNNYU.sign_up_button))).click()
+
+===========================
+use javascript executor.
+
+WebElement element = driver.findElement(By.cssSelector("HackNNYU.sign_up_button"));
+    JavascriptExecutor executor = (JavascriptExecutor)driver;
+    executor.executeScript("arguments[0].click();", element);
+
+============================
+SeeMore = WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.LINK_TEXT, 'See More...')))
+
+
+===================================
+driver.execute_script("document.getElementById('confirm-btn').click()")
+
+
+
+==================================
+  stored_the_fav = False
+
+  # xpath = f"//*/form/*"
+  xpath = f"//*/form"
+  os = d.find_elements_by_xpath(xpath)
+  if os:
+    if len(os) > 0:
+      for o in os:
+        # innerHTML: [
+        # <h2>add to favorites</h2>
+        # Stored the favorite General: FVRT 0110 last values of all.
+        # <br>
+        # <br>
+        # <input type="button" class="button" value="Back" onclick="history.go(-2)"><br><br>
+        # <input name="u645342fm" type="hidden" value="1">
+        # ]
+        t = o.get_attribute("innerHTML")
+        logger.debug(f'innerHTML: [{t}]')
+        t = " ".join(t.splitlines())
+
+        regexp = 'stored.*the.*favorite'
+        if re.search(regexp, t, flags=re.IGNORECASE):
+          logger.info(f"Found matching expression to '{regexp}'")
+          stored_the_fav = True
+
+      if not stored_the_fav:
+        logger.error(f"No matching expression could be found for '{regexp}' in: {t}")
+  else:
+    logger.debug(f"No elements found for xpath={xpath}")
+
+  if stored_the_fav:
+    # successful
+    testresult.passed(tcase)
+  else:
+    errtext = f'Favorite {favname} was not stored'
+    logger.error(errtext)
+    testresult.failed(tcase)
+    testresult.error(f"{testid.current()}: {errtext}")
+    return(0)
+
+  return(1)
+
+
+a = driver.find_elements_by_class_name("content")
+
+
+//p[contains(@class, 'message')]
+
+
+driver.execute_script("document.getElementById('confirm-btn').click()")
+
+
+
+Find id of report
+use that in dropdown list of reports in mail reports (and elsewhere)
+
+  # -----------------------------------------------------------------------------------
+  # Assumption:
+  # Find the name of the <input> where its value is the name of the report.
+  # Use that name (e.g. "n2621") exchange the 'n' by a 'd' and
+  # that is the name of the delete checkbox ("d2621").
+
+  # <input name="reportsid" type="hidden" value="2624"><input name="selserverid" type="hidden" value="">...
+
+  xpath = f'//*/td/input[@name="reportsid"]'
+
+  os = d.find_elements_by_xpath(xpath)
+  if not os:
+    logger.debug(f'No matching elements found by xpath={xpath}')
+    
+
+  if not len(os) > 0:
+    logger.debug(f'No matching elements found by xpath={xpath}')
+    logger.info(f'Cannot derive report id')
+    return(0)
+
+  # The report id is found
+  logger.debug(f'Expected <input... value="{repname}" found')
+  o = os[0]
+  repid = o.get_attribute('value')
+
+
+
+
+
+Find all used vavorites:
+$ grep FVRT *.py
+
+$ grep FVRT *.py  | sort -u
+
+Find all used reports:
+$ grep RPRT *.py
+
+$ grep RPRT *.py  | sort -u
+
+
+AmieAction
+Amie_Action5
+
+
+r596
+RPRT 1010 - Continuous Values
+2630
+
+from datetime import datetime
+
+
+dt = "2021-03-16 11:45:15.242268"
+dt = "2021-03-16 11:45:15"
+
+def parse_dt(dt, fmt = "%Y-%m-%d %H:%M:%S"):
+  try:
+    d = datetime.strptime(dt, fmt)
+  except ValueError:
+    d = None
+  return(d)
+
+
+print(parse_dt(dt, "%Y-%m-%d %H:%M:%S.%f"))
+
+
+p=$(ps -ef|grep chrom | grep -v grep | awk '{print $2}') ; [[ -n "$p" ]] && kill -9 $p
+
+---------------------------------------------------------------------------------------
+testcase: 
+
+  tcase = f"{testid.next()}: teststep_case_description "
+
+
+    errtext = "error_message"
+    logger.error(errtext)
+    testresult.failed(tcase)
+    testresult.error(f"{testid.current()}: {errtext}")
+
+
+  testresult.passed(tcase)
+
+---------------------------------------------------------------------------------------
+<br>
+
+if an expression contains <br>:
+
+        txt = str(o.text)
+        txt = txt.replace("\r","").replace("\n"," ")
+        regexp = "..."
+        if re.search(regexp, txt, flags=re.IGNORECASE):
+
+
+
+
+click_uls_path_with_wait???
+
+
+Doch lieber feste IDs für die test cases verwenden?
+Dann wäre eine Vollständigkeitsprüfung möglich, so nicht.
+
+
+  testid = test_id('FVRT', tno0 + 20)
+
+  testid = test_id(tmod, 1020)
+  tcase = f"{testid}: Delete favorite '{favname}'"
+
+
+tmod = 'CVAL'
+testmodule = 'CVAL1000'
+
+Die Nummerierung MUSS konstant erfolgen
+
+
+xx ist in jeden Skript anders, deshalb muss nur innerhalb eines Skripts 
+gegen Doppelbelegung vorgesorgt werden.
+
+xx10: create/define
+xx20: invoke/use
+xx50: change
+xx70: delete
+xx80: de-/activate
+
+
+INIT
+
+
+SECU
+
+
+
+WBUI  Web Browser User Interface
+
+  testid = test_id('WBUI', 1010)
+  tcase = f"{testid}: Open 'auto details selection'"
+
+  testid = test_id('WBUI', 1011)
+  tcase = f"{testid}: Fill out 'auto details selection' form"
+
+  testid = test_id('WBUI', 1012)
+  tcase = f"{testid}: Result page is generated"
+
+  testid = test_id('WBUI', 1013)
+  tcase = f"{testid}: Check compiled 'auto details selection' results"
+
+
+FVRT  Favorites
+
+  testid = test_id('FVRT', 1010)
+  tcase = f"{testid}: Create favorite {favname}"
+
+  testid = test_id('FVRT', 1020)
+  tcase = f"{testid}: Invoke favorite '{favname}'"
+
+  testid = test_id('FVRT', 1070)
+  tcase = f"{testid}: Delete favorite '{favname}'"
+
+
+RPRT  Reports
+
+  testid = test_id('RPRT', 1010)
+  tcase = f"{testid}: Create report '{repname}' from current output"
+
+  testid = test_id('RPRT', 1011)
+  tcase = f"{testid}: Create e-mail report '{repname}'"
+
+
+
+  testid = test_id('RPRT', 1020)
+  tcase = f"{testid}: Invoke report '{repname}'"
+
+  testid = test_id('RPRT', 1021)
+  tcase = f"{testid}: Check report '{repname}' for completeness"
+
+  testid = test_id('RPRT', 1022)
+  tcase = f"{testid}: Invoke PDF report '{repname}'"
+
+  testid = test_id('RPRT', 1023)
+  tcase = f"{testid}: E-mail report is delivered in correct ULS path"
+
+  testid = test_id('RPRT', 1024)
+
+  testid = test_id('RPRT', 1025)
+  tcase = f"{testid}: E-mail report contains expected attachments"
+
+  testid = test_id('RPRT', 1050)
+  tcase = f"{testid}: Extend e-mail report definition '{repname}'"
+
+
+  testid = test_id('RPRT', 1070)
+  tcase = f"{testid}: Delete report '{repname}'"
+
+  testid = test_id('RPRT', 1071)
+  tcase = f"{testid}: Delete email report '{repname}'"
+
+
+CVAL Continuous Values
+
+
+
+
+CDET Combined Details
+
+
+USER 1020
+  testid = test_id('USER', tnbase+20)
+  tcase = "{testid}: Login of user 'admin'"
+
+  testid = test_id('USER', tnbase+21)
+  tcase = "{testid}: Login of user 'spyder'"
+
+  testid = test_id('USER', tnbase+22)
+  tcase = "{testid}: Login of user 'amie'"
+
+  testid = test_id('USER', tnbase+23)
+  tcase = "{testid}: Login of user 'joe'"
+
+  testid = test_id('USER', tnbase+24)
+  tcase = "{testid}: Login of user 'guy'"
+
+  testid = test_id('USER', tnbase+25)
+  tcase = "{testid}: Login of user 'sec'"
+
+
+
+user1000_check_logins.py
+  Login each user once, change the password on first login, 
+  check the complexity check, ...
+
+
+cval1000_contvalues:
+  Final wird ein e-mail report eingerichtet, der jeden Tag um 04:00 Uhr morgens generiert
+  und unter Knowhere - testsrv11 - e-mail reports landen soll.
+  Das jeden Tag testen (Prüfung, ob der e-mail report eingerichtet ist)
+  damit die Ausführung stillschweigend beendet wird, wenn noch nicht erstellt.
+
+Skript 
+  rprt1100_check_email_reports.py
+prüft jeden Tag um XX:00, dass alle definierten E-Mail Reports angekommen sind.
+
+
+ntfy1000_manual_limits.py
+
+
+AmieAction     Amie_Action5
+SystematicGuy  N0thing2l0se
+the_spyder     Abcd:,1234
+
+p=$(ps -ef|grep chrom | grep -v grep | awk '{print $2}') ; kill -9 $p
+
+
+
+
+    • as different definition types (explicit, domain-based, group-based):
+        ◦ limits
+        ◦ limits combined over different details (combined limits)
+        ◦ isAlive
+        ◦ limits on aggregated values
+
+
+
+datatypes:
+  integers
+  float           
+  float (unit: %)    *
+  float (unit: [E])             (si-unit based recalculation)
+  string             *
+  images and files
+
+
+
+    • function
+        ◦ last, min, max, max-min, last-first, first
+        ◦ avg (average, arithmetic mean), sum (sum of all values), dev (standard deviation), count, grad (gradient), accel (acceleration), differ (difference)
+    • over
+        ◦ number of values
+        ◦ time interval (minutes, hours, days)
+    • comparison
+        ◦ < <| <= <=| > >| >= >=| = =| != !=| value is compared to limit (type conversion)
+        ◦ == ==| !== !==| value is compared to limit (no type conversion, always string comparison)
+        ◦ ~~ ~~| !~~ !~~| value contains limit as substring
+        ◦ ~ !~ ~| !~| value matches regular expression as limit
+
+
+
+<    less than            *
+<=   less or equal
+>    greater than         *
+>=   greater or equal
+=    equal
+!=   not equal
+==   equal strings        *
+!==  not equal strings
+~    regexp               *
+!~   not regexp
+~~   substring
+!~~  not substring        <--
+~|   regexp (ignore case) 
+!~|  not regexp (ignore case)
+~~|  substring (ignore case)
+!~~| not substring (absolute/ignore case)  *
+=|  equal (absolute/ignore case)
+!=|  not equal (absolute/ignore case)      <--
+==|  equal strings (ignore case)
+!==| not equal strings (ignore case)
+<|   less than (absolute/ignore case)
+<=|  less or equal (absolute/ignore case)     *
+>|   greater than (absolute/ignore case)
+>=|  greater or equal (absolute/ignore case)
+
+notify mode:
+  collect      *
+  every value  *
+  1h
+  6h           *
+  12h          *
+  24h
+  once          *
+
+
+
+Limits, coverage of limit definition combinations:
+
+domain-based limits:
+String   last  1  <, ==, ~, !~~|        collect, every value, 6h, once
+Float %  avg   3  >                     12h
+
+group-based limits:
+Integer
+
+
+====================
+Group-Based Limits
+
+Integer
+
+Knowhere - testsrv11 - Integer Values - données numériques | Ramp
+
+innerhalb einer Stunde
+    xx:58     xx:03
+von  1680 auf -1620
+
+    xx:28    xx:33
+     -120 auf  180
+
+
+Scenario 1:
+sum over 11 min  <=| 60  
+occurs at full hour switch: -1620 + 1680 = 60
+and at half hour switch:     -120 +  180 = 60
+
+Depends on when the limit is first defined, then every 6 hours
+and it shifts by one each 6 hours (full, half, full, half, ...)
+
+
+
+float [E]: Knowhere - testsrv11 - Float Values - Power Plant §34 | Energy
+           Knowhere - testsrv12 - Float Values - _weather_information |  Temperature
+
+float [MB/s]: Woodlark - testsrvXX - Float Values - 100 Float Values | Normalized Gaussian Distribution
+grad
+
+timestamp	          Normalized Gaussian Distribution
+                    MB/s
+2021-04-09 10:23:00	6.46905175464352
+2021-04-09 10:18:00	2.78037300453194
+=> 44.26414500133895 MB/s/h	
+
+gradient >| 40  , 1h (change later to every value)
+
+... $AVERAGE_OF(Normalized Gaussian Distribution/MB/s, 1h)
+
+
+
+
+AmieAction     Amie_Action5
+SystematicGuy  N0thing2l0se
+the_spyder     Abcd:,1234
+
+User           Group         Knowhere    Woodlark
+TheSpyder      AllRounder    full        full
+AmieAction     Databasics    full        ro
+SystematicGuy  Systemaniacs  ro          full
+
+
+
+SystematicGuy:
+Set as manually defined limit on testsrv22, (later) propagate to domain limit (also testsrv21)
+Woodlark - testsrv22 - Float Values - 100 Float Values 
+
+
+cont: 
+
+ AGGR 1040:
+
+last[D](Percentage)
+first[D](Percentage)
+avg[D](Percentage)
+min[D](Percentage)
+max[D](Percentage)
+max-min[D](Percentage)
+sum[D](Percentage)
+count[D](Percentage)
+last-first[D](Percentage)
+%	last-first+[D](Percentage)
+%	last-first-[D](Percentage)
+%	dev[D](Percentage)
+%	grad[D](Percentage)
+%/h	accel[D](Percentage)
+%/h²	last/avg[D](Percentage)
+last/avg-1[D](Percentage)
+
+
+
+ 10.2.4.4  Deletion
+
+ 10.4.3  Domain-Based Combined Limits
+
+
+
+
+
+
+Woodlark - testsrv22 - @notifications - limits
+
+
+===============================
+AdminPlattform
+
+keine Verbindung über wbadmpt115
+===============================
+
+
+
+
+
+
+
+
+
+
+boilerplate / template
+
+
+
+===============================
+Generic Limits
+
+
+create group CanDefineTemplates, [x] is master  (can create generic limit/isAlive templates)
+assign to the_spyder
+
+
+============================
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+isAlive
