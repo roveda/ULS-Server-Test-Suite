@@ -7,7 +7,7 @@ for more information.
 
 ## ULS-Server Version
 
-Related ULS-server version: 1.9.6
+Related ULS-server version: 1.9.7
 
 ## Further Documentation
 
