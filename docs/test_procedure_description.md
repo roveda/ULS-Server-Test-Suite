@@ -5,7 +5,7 @@ It covers most features of the common usage. It delivers the main test execution
 to verify the proper operation of the ULS-server. Some additional documents, like reports and limit definitions, 
 which are referenced in this document are kept as separate documents.
 
-This documentation refers to the [ULS-server version](index.md#uls-server-version)
+This documentation refers to the [ULS-server version](index.md#uls-server-version), more information about updates can be found [here](https://www.universal-logging-system.org/dokuwiki/doku.php?id=uls:install#update).
 
 ## Conventions
 Terminal in- and output is marked by `mono spaced font`.
