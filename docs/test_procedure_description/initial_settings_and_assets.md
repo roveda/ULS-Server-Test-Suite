@@ -5,6 +5,8 @@ TEST_MODULE: Initial Settings and Assets (INIT)
 The test scripts use and expect specific settings and defined assets. 
 They are defined in this chapter. This is the test of the administrative user interface.
 
+\[[Next](security_features.md)\]  \[[Prev](preparations.md)\]  \[[Up](../test_procedure_description.md)\]  \[[Home](../index.md)\]
+
 ## Firefox Profile
 Set up a specific profile for testing ULS, use `English` as default language to get the same presentation as found in this guide.
 
@@ -291,4 +293,6 @@ TEST: INIT 0185: group and domain membership of security user
 ## Notification Destinations
 
 CONT HERE
+
+\[[Next](security_features.md)\]  \[[Prev](preparations.md)\]  \[[Up](../test_procedure_description.md)\]  \[[Home](../index.md)\]
 
